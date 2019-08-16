@@ -1,3 +1,5 @@
+//for future use, cluster connection string: mongodb+srv://jdonahue:guest12345@cluster0-bdque.azure.mongodb.net/test?retryWrites=true&w=majority
+
 //import modules
 var createError = require('http-errors');
 var express = require('express');
@@ -10,6 +12,13 @@ var usersRouter = require('./routes/users');
 
 //Configure app
 var app = express();
+
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://jdonahue:guest12345@cluster0-bdque.azure.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
