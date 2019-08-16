@@ -1,5 +1,3 @@
-//for future use, cluster connection string: mongodb+srv://jdonahue:guest12345@cluster0-bdque.azure.mongodb.net/test?retryWrites=true&w=majority
-
 //import modules
 var createError = require('http-errors');
 var express = require('express');
