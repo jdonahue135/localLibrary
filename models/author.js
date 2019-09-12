@@ -23,7 +23,10 @@ AuthorSchema
 AuthorSchema
 .virtual('lifespan')
 .get(function () {
-    if (!this.date_of_death) {
+    if (!this.date_of_birth && !this.date_of_death) {
+        return;
+    }
+    else if (!this.date_of_death) {
         return 'b. ' + moment(this.date_of_birth).format('MMMM Do, YYYY')
     }
     else {
