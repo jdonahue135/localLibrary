@@ -21,14 +21,6 @@ AuthorSchema
 
 // Virtual for author's lifespan
 AuthorSchema
-.virtual('old_lifespan')
-.get(function () {
-    return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString();
-});
-
-// Virtual for author's birth and death
-//TEST!!!
-AuthorSchema
 .virtual('lifespan')
 .get(function () {
     if (!this.date_of_death) {
@@ -37,6 +29,20 @@ AuthorSchema
     else {
         return moment(this.date_of_birth).format('MMMM Do, YYYY') + ' - ' + moment(this.date_of_death).format('MMMM Do, YYYY');
     }
+});
+
+//Virtual for formatted, database friendly date of birth
+AuthorSchema
+.virtual('dob_formatted')
+.get(function () {
+    return moment(this.date_of_birth).format('YYYY-MM-DD');
+});
+
+//Virtual for formatted, database friendly date of death
+AuthorSchema
+.virtual('dod_formatted')
+.get(function () {
+    return moment(this.date_of_death).format('YYYY-MM-DD');
 });
 
 // Virtual for author's URL
