@@ -1,1 +1,1 @@
-Create a Library website as part of The Odin Project's NodeJS Curriculum
+Create a Library website as part of The Odin Project's NodeJS Curriculum (via https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website)
