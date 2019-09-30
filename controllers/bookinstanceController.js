@@ -129,7 +129,6 @@ exports.bookinstance_delete_post = function(req, res, next) {
 };
 
 // Display BookInstance update form on GET.
-// Need to use asnc.parrallel to get book list TODO!!!
 exports.bookinstance_update_get = function(req, res, next) {
     
     async.parallel({
